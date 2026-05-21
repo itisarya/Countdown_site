@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Until We Finally Meet ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+background:
+linear-gradient(
+180deg,
+#fff6f7 0%,
+#ffe7eb 100%
+);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* Floating Hearts */
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+}
+
+.hearts span{
+position:absolute;
+bottom:-50px;
+animation:float linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+
+0%{
+transform:
+translateY(0)
+scale(0);
+opacity:0;
+}
+
+10%{
+opacity:.8;
+}
+
+100%{
+transform:
+translateY(-120vh)
+scale(1);
+opacity:0;
+}
+
+}
+
+/* Sparkles */
+
+.sparkle{
+position:absolute;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px white;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+
+/* Main Card */
+
+.container{
+
+width:92%;
+max-width:430px;
+height:92vh;
+
+background:
+rgba(255,255,255,.38);
+
+backdrop-filter:blur(18px);
+
+border-radius:38px;
+
+padding:28px 22px;
+
+box-shadow:
+0 15px 40px rgba(255,0,80,.08);
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* Title */
+
+.title{
+margin-top:25px;
+text-align:center;
+}
+
+.title h1{
+font-family:'Sacramento',cursive;
+font-size:3.7rem;
+line-height:1;
+font-weight:400;
+color:#d10038;
+}
+
+.title p{
+margin-top:14px;
+font-size:1rem;
+color:#a9445b;
+}
+
+/* Countdown */
+
+.countdown-card{
+
+margin-top:42px;
+
+width:100%;
+
+display:flex;
+justify-content:space-around;
+align-items:center;
+
+background:
+rgba(255,255,255,.52);
+
+padding:26px 20px;
+
+border-radius:28px;
+
+box-shadow:
+0 10px 30px rgba(255,0,60,.05);
+
+}
+
+.time-box{
+text-align:center;
+}
+
+.time-box h2{
+font-size:3.4rem;
+font-weight:600;
+color:#d10038;
+}
+
+.time-box span{
+font-size:.95rem;
+letter-spacing:2px;
+color:#b05a71;
+}
+
+/* Progress Section */
+
+.progress-section{
+margin-top:75px;
+width:100%;
+position:relative;
+}
+
+/* Characters */
+
+.characters{
+position:relative;
+height:75px;
+width:100%;
+margin-bottom:16px;
+}
+
+.character{
+position:absolute;
+font-size:62px;
+transition:all 1s ease;
+z-index:5;
+}
+
+.boy{
+left:0%;
+bottom:0;
+}
+
+.girl{
+right:0;
+bottom:0;
+}
+
+/* Progress Track */
+
+.track{
+
+width:100%;
+height:16px;
+
+background:#ffd8df;
+
+border-radius:50px;
+
+overflow:hidden;
+
+position:relative;
+
+box-shadow:
+inset 0 2px 6px rgba(0,0,0,.06);
+
+}
+
+/* Fill */
+
+.progress{
+
+height:100%;
+width:0%;
+
+background:
+linear-gradient(
+90deg,
+#ff0037,
+#ff6b8c
+);
+
+border-radius:50px;
+
+box-shadow:
+0 0 18px rgba(255,0,55,.45);
+
+transition:width 1s linear;
+
+}
+
+/* Heart Marker */
+
+.heart-marker{
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:
+translate(-50%,-50%);
+
+font-size:22px;
+
+filter:
+drop-shadow(
+0 0 8px rgba(255,0,70,.45)
+);
+
+}
+
+/* Progress Text */
+
+.progress-info{
+margin-top:26px;
+text-align:center;
+}
+
+.progress-info h3{
+font-size:2.1rem;
+font-weight:600;
+color:#d10038;
+}
+
+.progress-info p{
+margin-top:8px;
+font-size:.95rem;
+color:#b05a71;
+}
+
+/* Footer Message */
+
+.message{
+margin-top:auto;
+margin-bottom:18px;
+text-align:center;
+font-size:.95rem;
+color:#b05a71;
+line-height:1.6;
+}
+
+/* Final State */
+
+.final-message{
+
+display:none;
+
+margin-top:90px;
+
+text-align:center;
+
+animation:fadeIn 2s ease;
+
+}
+
+.final-message .hug{
+font-size:100px;
+animation:bounce 1.5s infinite;
+}
+
+.final-message h2{
+margin-top:15px;
+font-size:2.2rem;
+color:#d10038;
+}
+
+.final-message p{
+margin-top:10px;
+font-size:1rem;
+color:#a9445b;
+}
+
+@keyframes bounce{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Confetti */
+
+.confetti{
+
+position:absolute;
+
+width:10px;
+height:10px;
+
+top:-10px;
+
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:
+translateY(110vh)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:430px){
+
+.title h1{
+font-size:3.2rem;
+}
+
+.time-box h2{
+font-size:2.8rem;
+}
+
+.character{
+font-size:54px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Hearts -->
+<div class="hearts"></div>
+
+<!-- Sparkles -->
+<div class="sparkles"></div>
+
+<div class="container">
+
+<div class="title">
+
+<h1>
+Until we<br>
+finally meet ❤️
+</h1>
+
+<p>
+20 June 2026 • India
+</p>
+
+</div>
+
+<!-- Countdown -->
+
+<div class="countdown-card">
+
+<div class="time-box">
+<h2 id="days">0</h2>
+<span>DAYS</span>
+</div>
+
+<div class="time-box">
+<h2 id="hours">0</h2>
+<span>HOURS</span>
+</div>
+
+</div>
+
+<!-- Progress -->
+
+<div class="progress-section">
+
+<div class="characters">
+
+<div class="character boy" id="boy">
+🤓
+</div>
+
+<div class="character girl">
+💁🏻‍♀️
+</div>
+
+</div>
+
+<div class="track">
+
+<div class="progress" id="progress"></div>
+
+<div class="heart-marker">
+❤️
+</div>
+
+</div>
+
+<div class="progress-info">
+
+<h3 id="progressPercent">
+0%
+</h3>
+
+<p>
+of our journey completed
+</p>
+
+</div>
+
+</div>
+
+<!-- Final Message -->
+
+<div class="final-message" id="finalMessage">
+
+<div class="hug">
+🫂
+</div>
+
+<h2>
+We Finally Met ❤️
+</h2>
+
+<p>
+Every second was worth waiting for.
+</p>
+
+</div>
+
+<div class="message">
+
+Some distances are temporary.<br>
+Some love stories are timeless ✨
+
+</div>
+
+</div>
+
+<script>
+
+/* Target Date */
+
+const targetDate =
+new Date(
+"2026-06-20T00:00:00+05:30"
+).getTime();
+
+const startDate =
+new Date().getTime();
+
+const totalDuration =
+targetDate - startDate;
+
+/* Elements */
+
+const daysEl =
+document.getElementById("days");
+
+const hoursEl =
+document.getElementById("hours");
+
+const progressEl =
+document.getElementById("progress");
+
+const boyEl =
+document.getElementById("boy");
+
+const percentEl =
+document.getElementById("progressPercent");
+
+const finalMessage =
+document.getElementById("finalMessage");
+
+/* Countdown */
+
+function updateCountdown(){
+
+const now =
+new Date().getTime();
+
+const distance =
+targetDate - now;
+
+if(distance <= 0){
+
+daysEl.innerHTML = "0";
+hoursEl.innerHTML = "0";
+
+document.querySelector(
+".progress-section"
+).style.display = "none";
+
+document.querySelector(
+".countdown-card"
+).style.display = "none";
+
+finalMessage.style.display = "block";
+
+launchConfetti();
+
+return;
+
+}
+
+const days =
+Math.floor(
+distance / (1000*60*60*24)
+);
+
+const hours =
+Math.floor(
+(distance %
+(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+daysEl.innerHTML = days;
+hoursEl.innerHTML = hours;
+
+/* Progress */
+
+const progressPercent =
+(
+(totalDuration - distance)
+/
+totalDuration
+) * 100;
+
+progressEl.style.width =
+progressPercent + "%";
+
+/* Boy movement */
+
+boyEl.style.left =
+`calc(${progressPercent}% - 35px)`;
+
+/* Percentage text */
+
+percentEl.innerHTML =
+progressPercent.toFixed(1) + "%";
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+/* Floating Hearts */
+
+const heartsContainer =
+document.querySelector(".hearts");
+
+function createHeart(){
+
+const heart =
+document.createElement("span");
+
+heart.innerHTML = "❤️";
+
+heart.style.left =
+Math.random()*100 + "vw";
+
+heart.style.fontSize =
+(Math.random()*18 + 12)
++ "px";
+
+heart.style.animationDuration =
+(Math.random()*6 + 6)
++ "s";
+
+heartsContainer.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},12000);
+
+}
+
+setInterval(createHeart,700);
+
+/* Sparkles */
+
+const sparkles =
+document.querySelector(".sparkles");
+
+for(let i=0;i<40;i++){
+
+const s =
+document.createElement("div");
+
+s.classList.add("sparkle");
+
+s.style.left =
+Math.random()*100 + "vw";
+
+s.style.top =
+Math.random()*100 + "vh";
+
+s.style.animationDelay =
+Math.random()*3 + "s";
+
+sparkles.appendChild(s);
+
+}
+
+/* Confetti */
+
+function launchConfetti(){
+
+for(let i=0;i<150;i++){
+
+const confetti =
+document.createElement("div");
+
+confetti.classList.add("confetti");
+
+confetti.style.left =
+Math.random()*100 + "vw";
+
+confetti.style.background =
+Math.random() > .5
+? "#ff0037"
+: "#ff8ba5";
+
+confetti.style.animationDuration =
+(Math.random()*3 + 2)
++ "s";
+
+document.body.appendChild(
+confetti
+);
+
+setTimeout(()=>{
+confetti.remove();
+},5000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
